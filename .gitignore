@@ -1,0 +1,18 @@
+# Xcode
+#
+# gitignore contributors: checkout the Python file for a generated version
+# (https://github.com/github/gitignore/blob/master/Swift.gitignore)
+
+## Build results
+build/
+DerivedData/
+*.xcresult/
+
+## User-specific
+*.xcuserdatad/
+*.xcuserstate
+xcuserdata/
+
+## Others
+check.o
+.DS_Store
