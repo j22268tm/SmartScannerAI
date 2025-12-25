@@ -1,0 +1,21 @@
+{
+  "name": "Mahiro's Apps",
+  "identifier": "com.mahiro.apps",
+  "subtitle": "On-device AI Tools",
+  "description": "Smart apps powered by on-device FoundationModels.",
+  "iconURL": "https://raw.githubusercontent.com/j22268tm/SmartScannerAI/main/TEST/Assets.xcassets/AppIcon.appiconset/Contents.json",
+  "apps": [
+    {
+      "name": "Smart Scanner AI",
+      "bundleIdentifier": "korucha.TEST",
+      "developerName": "Mahiro",
+      "version": "1.0.0",
+      "versionDate": "2025-12-25",
+      "downloadURL": "https://github.com/j22268tm/SmartScannerAI/releases/download/v1.0.0/SmartScannerAI.ipa",
+      "localizedDescription": "Vision OCRとFoundationModelsを使用したインテリジェントなスキャナーアプリ。認識したテキストを要約したり、内容についてAIとチャットしたりできます。",
+      "iconURL": "https://raw.githubusercontent.com/j22268tm/SmartScannerAI/main/TEST/Assets.xcassets/AppIcon.appiconset/Contents.json",
+      "size": 0,
+      "screenshotURLs": []
+    }
+  ]
+}
