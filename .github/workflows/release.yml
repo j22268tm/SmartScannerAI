@@ -1,0 +1,47 @@
+name: Build and Release IPA
+
+on:
+  push:
+    tags:
+      - 'v*' # v1.0.0 などのタグがpushされた時に実行
+
+jobs:
+  build:
+    name: Build iOS App
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Xcode
+        uses: maxim-lobanov/setup-xcode@v1
+        with:
+          xcode-version: 'latest-stable'
+
+      - name: Build Archive
+        run: |
+          xcodebuild -scheme TEST \
+            -destination 'generic/platform=iOS' \
+            -archivePath build/TEST.xcarchive \
+            -configuration Release \
+            CODE_SIGN_IDENTITY="" \
+            CODE_SIGNING_REQUIRED=NO \
+            CODE_SIGNING_ALLOWED=NO \
+            clean archive
+
+      - name: Export IPA
+        run: |
+          mkdir Payload
+          cp -r build/TEST.xcarchive/Products/Applications/TEST.app Payload/
+          zip -r SmartScannerAI.ipa Payload
+          rm -rf Payload
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: SmartScannerAI.ipa
+          generate_release_notes: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
